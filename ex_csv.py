@@ -2,6 +2,7 @@
 # Mundial de Universidades (notas.csv)
 
 
+
 import pandas as pd
 df = pd.read_csv("C:\\Users\\Felipe M\\OneDrive\\Faculdade\\Programação Estruturada\\Estruturada\\notas_base.csv")
 df.shape
@@ -10,8 +11,6 @@ df.dtypes
 df.isna().sum()
 df.head()
 df.tail()
-df.describe()
-
 
 
 
