@@ -64,7 +64,7 @@ df.loc[filtro, ["institution", "score", "country"] ] .sort_values("score",ascend
 
 # Exercício 4 – Seleção Avançada 
 # 1. Mostre apenas as colunas: institution,
-# country e score 
+# country e score
 df.loc[:, ["institution", "country", "score"]] .sort_values("score",ascending=False)
 
 # 2. Mostre universidades entre rank 50 e 100 
