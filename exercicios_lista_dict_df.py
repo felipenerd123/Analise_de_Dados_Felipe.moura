@@ -111,9 +111,15 @@ df_vendas.loc[:,["filial", "mes", "ticket_medio", "meta_batida"]]
 
 # Exercicio 5:
 # a) Calcule total de vendas por filial
-# b) Calcule media de clientes por mes
-# c) Descubra a filial com maior total de vendas
+df_vendas.loc[:, ["vendas"]].sum()
+df_vendas.groupby("filial")["vendas"].sum()
 
+# b) Calcule media de clientes por mes
+df_vendas.groupby("mes")["clientes"].mean()
+
+# c) Descubra a filial com maior total de vendas
+maximo = df_vendas["vendas"].mean()
+#...
 # RESOLUCAO: complete aqui
 
 
@@ -164,9 +170,17 @@ dados_list_dict = [{
 # -----------------------------------------------------------
 
 # 1. Qual é o tipo de dados_list_dict?
+type(dados_list_dict)
+
 # 2. Qual é o tipo do primeiro elemento?
+dic = dados_list_dict[0]
+type(dic)
+
 # 3. Como acessar a lista da "Column A"?
+dic["Column A"]
+
 # 4. Como acessar o segundo elemento da "Column C"?
+dic["Column C"]
 
 # RESPONDA AQUI:
 
@@ -185,7 +199,7 @@ dados_list_dict = [{
 #    - média de cada coluna
 
 # RESOLVA AQUI:
-
+df1 = pd.DataFrame(dados_list_dict[0])
 
 
 # -----------------------------------------------------------
@@ -212,12 +226,14 @@ dados_list_dict = [{
 # orient="records":
 #   Cada elemento representa uma linha.
 #   Estrutura ideal para APIs e JSON.
+df1.to_dict()
+df1.to_dict(orient="records")
 
 # orient="list":
 #   Cada chave representa uma coluna.
 #   Estrutura colunar, útil para reconstruir DataFrame.
 
-
+df1.to_dict(orient="list")
 # RESOLVA AQUI:
 
 
@@ -226,7 +242,9 @@ dados_list_dict = [{
 # -----------------------------------------------------------
 
 # 1. Transforme a coluna "Column A" em uma lista chamada lista_a.
+lista = df1["Column A"].to_list()
 # 2. Multiplique cada elemento da lista por 10.
+lista 
 # 3. Crie uma nova coluna chamada "Column A x10" com essa nova lista.
 
 # RESOLVA AQUI:
@@ -261,6 +279,7 @@ dados = [
 
 # Exercício 1
 # 1. Qual o tipo da variável dados?
+
 # 2. Quantos registros existem?
 # 3. Quais são as chaves do primeiro dicionário?
 # 4. Liste todos os países existentes (sem repetição).
@@ -275,6 +294,7 @@ dados = [
 
 # Exercício 2
 # 1. Converta dados para DataFrame chamado df
+pd.DataFrame(dados)
 # 2. Mostre shape, tipos e primeiras linhas
 # 3. Converta a coluna periodo para datetime
 
